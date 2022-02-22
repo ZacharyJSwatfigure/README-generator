@@ -1,38 +1,33 @@
-const fs = require("fs"); //fs
-const inquirer = require("inquirer"); //npm i inquirer
-
-// TODO: Create an array of questions for user input
-const userQuestions = [
+const fs = require("fs");
+const inquirer = require("inquirer");
+const generateMarkdown = require("./professionalMarkdownGen.js");
+const usersQuestions = [
   {
     type: "input",
     name: "name",
     message: "Starting application! Write your full name:",
   },
-  
   {
     type: "input",
     name: "gitHub",
     message: "Write your GitHub username:",
   },
-
   {
     type: "input",
     name: "title",
     message: "Write your projects title:",
   },
-
   {
     type: "input",
     name: "description",
     message: "Decscribe what your project does:",
   },
-    
+  
   {
     type: "input",
     name: "installation",
     message: "How do you install your project?",
   },
-
   {
     type: "input",
     name: "usage",
@@ -44,14 +39,12 @@ const userQuestions = [
     name: "contributing",
     message: "How can other people contribute to your project?",
   },
-
+  {
   {
     type: "confirm",
     name: "confirmLicenses",
     message: "Would you like to include a license for your project?:",
-    default: false
   },
-
   {
     type: "list",
     name: "license",
@@ -62,18 +55,36 @@ const userQuestions = [
       "Apache"
     ]
   },
-
   {
     type: "input",
     name: "projectIssues",
-    message: "Where can people email questions about your project?",
+    message: "Where can I email questions about the application?",
   },
 ];
-
-// TODO: Create a function to write README file
-
-
-// TODO: Create a function to initialize app
-
-
-// Function call to initialize app
+const writeToFile = data => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("./README.md", data, err => {
+      if (err) {
+        reject (err);
+        return;
+      }
+      resolve({
+        ok: true,
+        message: console.log("Navigate to the utils folder to see your generated README!")
+      });
+    })
+  })
+}
+const init = () => {
+  return inquirer.prompt(usersQuestions);
+}
+init ()
+.then(userInput => {
+  return generateMarkdown(userInput);
+})
+.then(readmeInfo => {
+  return writeToFile(readmeInfo);
+})
+.catch (err => {
+  console.log(err);
+})
