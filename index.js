@@ -1,7 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./professionalMarkdownGen.js");
-const usersQuestions = [
+const userQuestions = [
   {
     type: "input",
     name: "name",
@@ -61,6 +61,7 @@ const usersQuestions = [
     message: "Where can I email questions about the application?",
   },
 ];
+
 const writeToFile = data => {
   return new Promise((resolve, reject) => {
     fs.writeFile("./README.md", data, err => {
@@ -75,9 +76,11 @@ const writeToFile = data => {
     })
   })
 }
+
 const init = () => {
-  return inquirer.prompt(usersQuestions);
+  return inquirer.prompt(userQuestions);
 }
+
 init ()
 .then(userInput => {
   return generateMarkdown(userInput);
