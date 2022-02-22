@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ZacharyJSwatfigure/README-generator#readme",
   "dependencies": {
+    "cli-color": "^2.0.1",
     "inquirer": "^8.2.0",
     "node": "^17.4.0"
   }

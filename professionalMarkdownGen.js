@@ -1,7 +1,6 @@
 const fs = require("fs");
-
-// / TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+  
+  
 function renderLicenseBadge(license) {
   if (!license) {
     return "";
@@ -9,9 +8,6 @@ function renderLicenseBadge(license) {
     return `[![${license} license](https://img.shields.io/badge/license-${license}-blue.svg)](${renderLicenseLink(license)})`
   }
 }
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
     switch (license) {
       case "MIT":
@@ -27,3 +23,43 @@ function renderLicenseLink(license) {
         break;
   }
 }
+function renderLicenseSection(license) {
+  if (!license) {
+    return "";
+  } else {
+    return `## License
+    This project is covered by the ${license} license. 
+    Click the license button at the top of this file to learn more.`
+  }
+}
+function generatedMarkdown(data) {
+  return `# ${data.title}
+  ${renderLicenseBadge(data.license)}
+  ## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  - [Credits](#credits)
+  ## Description
+  ${data.description}
+  ## Installation
+  ${data.installation}
+  ## Usage
+  ${data.usage}
+  ${renderLicenseSection(data.license)}
+  ## Contributing
+  ${data.contributing}
+  ## Tests
+  ${data.tests}
+  ## Questions
+  Questions about this project? <br/>
+  GitHub: https://github.com/${data.gitHub} <br/>
+  Email: ${data.email} 
+  ## Credits
+  ${data.name}`;
+}
+module.exports = generatedMarkdown;
