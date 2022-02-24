@@ -1,22 +1,23 @@
-# Good Read Me Generator
-  [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://lbesson.mit-license.org/)
+# ReadMe
+  [![Mozilla license](https://img.shields.io/badge/license-Mozilla-blue.svg)](https://www.mozilla.org/en-US/MPL/2.0/)
   ## Table of Contents
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
+  - [Contributing](#contributing)
   - [Questions](#questions)
   - [Credits](#credits)
   ## Description
-  This Project takers user input to generate a proffesional ReadMe file.
+  generates a readme file
   ## Installation
-  Type "npm init -y" then "npm i" into the terminal.
+  npm init -y then npm i into terminal
   ## License
-    This project is covered by the MIT license. 
+    This project is covered by the Mozilla license. 
     Click the license button at the top of this file to learn more.
   ## Questions
   Questions about this project? <br/>
-  GitHub: https://github.com/ZacharyJSwatfigure <br/>
+  GitHub: https://github.com/super duper <br/>
   Email: undefined 
   ## Credits
-  Zachary J Swatfigure
+  Zachary
