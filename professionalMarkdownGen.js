@@ -8,6 +8,8 @@ function renderLicenseBadge(license) {
     return `[![${license} license](https://img.shields.io/badge/license-${license}-blue.svg)](${renderLicenseLink(license)})`
   }
 }
+
+
 function renderLicenseLink(license) {
     switch (license) {
       case "MIT":
@@ -41,20 +43,13 @@ function generatedMarkdown(data) {
   - [Usage](#usage)
   - [License](#license)
   - [Contributing](#contributing)
-  - [Tests](#tests)
   - [Questions](#questions)
   - [Credits](#credits)
   ## Description
   ${data.description}
   ## Installation
   ${data.installation}
-  ## Usage
-  ${data.usage}
   ${renderLicenseSection(data.license)}
-  ## Contributing
-  ${data.contributing}
-  ## Tests
-  ${data.tests}
   ## Questions
   Questions about this project? <br/>
   GitHub: https://github.com/${data.gitHub} <br/>
